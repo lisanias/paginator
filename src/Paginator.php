@@ -56,7 +56,7 @@ class Paginator
      * @param array|null $first
      * @param array|null $last
      */
-    public function __construct(string $link = null, string $title = null, array $first = null, array $last = null)
+    public function __construct(string|null $link = null, string|null $title = null, array|null $first = null, array|null $last = null)
     {
         $this->link = ($link ?? "?page=");
         $this->title = ($title ?? "Página");
@@ -75,9 +75,9 @@ class Paginator
     public function pager(
         int $rows,
         int $limit = 10,
-        int $page = null,
+        int|null $page = null,
         int $range = 3,
-        string $hash = null,
+        string|null $hash = null,
         array $params = []
     ): void {
         $this->rows = $this->toPositive($rows);
@@ -134,7 +134,7 @@ class Paginator
      * @param bool $fixedFirstAndLastPage
      * @return null|string
      */
-    public function render(string $cssClass = null, bool $fixedFirstAndLastPage = true): ?string
+    public function render(string|null $cssClass = null, bool $fixedFirstAndLastPage = true): ?string
     {
         $this->class = $cssClass ?? "paginator";
 
